@@ -1,3 +1,58 @@
-<p>
-  add-property works!
-</p>
+<div class="form-wrapper">
+    <form class="form-horizontal">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-1 form-control-label">Name</label>
+            <div class="col-sm-11">
+                <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="Name">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-1 form-control-label">Address</label>
+            <div class="col-sm-11">
+                <textarea placeholder="Default Input" name="address" class="form-control" id="textarea01"></textarea>
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+    <label for="input02">Password</label>
+    <input type="password" class="form-control" id="input02" placeholder="Password">
+  </div>-->
+        <!--<div class="form-group">
+    <label for="input03">Rounded Corners</label>
+    <input type="text" class="form-control form-control-rounded" id="input03" placeholder="Rounded Corners">
+  </div>-->
+        <!--<div class="form-group">
+    <label for="input04">With help</label>
+    <input type="text" class="form-control" id="input04" placeholder="With help">
+    <span class="help-block sub-little-text">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+  </div>-->
+        <!--<div class="form-group">
+    <label for="input05">Disabled Input</label>
+    <input type="text" class="form-control" id="input05" placeholder="Disabled Input" disabled>
+  </div>-->
+
+        <!--<div class="input-group">
+            <span class="input-group-addon addon-left input-group-addon-success">Rent $</span>
+            <input type="text" class="form-control with-success-addon" aria-label="Amount (to the nearest dollar)">
+            <span class="input-group-addon addon-right input-group-addon-success">.00</span>
+        </div>-->
+
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-1 form-control-label">Description</label>
+            <div class="col-sm-11">
+                <textarea placeholder="Default Input" name="des" class="form-control" id="textarea01"></textarea>
+            </div>
+        </div>
+
+        <div class="input-demo checkbox-demo row">
+            <ba-multi-checkbox [(ngModel)]="checkboxModel" [propertiesMapping]="checkboxPropertiesMapping"></ba-multi-checkbox>
+        </div>
+        <!--<div class="form-group">
+    <input type="text" class="form-control form-control-sm" id="input2" placeholder="Small Input">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control form-control-lg" id="input4" placeholder="Large Input">
+  </div>-->
+    </form>
+</div>

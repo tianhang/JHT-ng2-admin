@@ -1,22 +1,31 @@
-import {Component, Input, Self} from '@angular/core';
-import {ControlValueAccessor, NgModel} from '@angular/forms';
+import {Component, Input, Self,forwardRef } from '@angular/core';
+import {ControlValueAccessor, NgModel,NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'ba-multi-checkbox[ngModel]',
+  selector: 'ba-multi-checkbox',
   templateUrl: './baMultiCheckbox.html',
   styleUrls: ['./baMultiCheckbox.scss'],
-  providers: [NgModel]
+  //providers: [NgModel]
+  providers: [{
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => BaMultiCheckbox),
+      multi: true,
+    }]
 })
 export class BaMultiCheckbox implements ControlValueAccessor {
   @Input() baMultiCheckboxClass:string;
   @Input() propertiesMapping:any;
+  @Input() checkboxModel: any;
 
-  public model: NgModel;
+  //public model: NgModel;
   public state: boolean;
 
-  public constructor(@Self() state:NgModel) {
-    this.model = state;
-    state.valueAccessor = this;
+  // public constructor(@Self() state:NgModel) {
+  //   this.model = state;
+  //   state.valueAccessor = this;
+  // }
+  public constructor(){
+
   }
 
   public getProp(item: any, propName: string): string {
@@ -37,7 +46,7 @@ export class BaMultiCheckbox implements ControlValueAccessor {
   public registerOnChange(fn: any): void {
     this.onChange = function(state: boolean) {
       this.writeValue(state);
-      this.model.viewToModelUpdate(state);
+      //this.model.viewToModelUpdate(state);
     };
   }
   public registerOnTouched(fn: any): void { this.onTouch = fn; }

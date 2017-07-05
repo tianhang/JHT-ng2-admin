@@ -1,5 +1,5 @@
 <div class="form-wrapper">
-    <form class="form-horizontal" [formGroup]="form">
+    <form class="form-horizontal" [formGroup]="form" novalidate>
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-1 form-control-label">Name</label>
             <div class="col-sm-11">
@@ -34,9 +34,21 @@
                 <textarea placeholder="Default Input" name="des" class="form-control" id="textarea01"></textarea>
             </div>
         </div>
-
-        <!--<div class="input-demo checkbox-demo row">
-            <ba-multi-checkbox [(ngModel)]="checkboxModel" [propertiesMapping]="checkboxPropertiesMapping"></ba-multi-checkbox>
-        </div>-->
+        <div class="form-group row checkbox-demo-row">
+            <label for="inputEmail3" class="col-sm-1 form-control-label" style="line-height:50px;">Facilities</label>
+            <div class="col-sm-11">
+                <div baCardBlur class="animated fadeIn card" zoom-in>
+                    <div class="card-body">
+                        <ba-multi-checkbox formControlName="checkboxModel" class="multi-checkbox" [propertiesMapping]="checkboxPropertiesMapping"></ba-multi-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-1 form-control-label" style="line-height:50px;">Photo</label>
+            <div class="col-sm-11">
+                <ba-picture-uploader [picture]="profile.picture" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+            </div>
+        </div>
     </form>
 </div>

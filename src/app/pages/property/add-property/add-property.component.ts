@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgUploaderOptions } from 'ngx-uploader';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,20 +10,50 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Valida
 export class AddPropertyComponent implements OnInit {
 
   public checkboxModel = [{
-    name: 'Check 1',
+    name: 'air conditioner',
     checked: false,
-    class: 'col-md-4'
+    class: 'col-md-2'
   }, {
-    name: 'Check 2',
+    name: 'washing machine',
     checked: true,
-    class: 'col-md-4'
+    class: 'col-md-2'
   }, {
-    name: 'Check 3',
+    name: 'bridge',
     checked: false,
-    class: 'col-md-4'
+    class: 'col-md-2'
+  }, {
+    name: 'bridge',
+    checked: false,
+    class: 'col-md-2'
+  }, {
+    name: 'bridge',
+    checked: false,
+    class: 'col-md-2'
+  }, {
+    name: 'bridge',
+    checked: false,
+    class: 'col-md-2'
+  }, {
+    name: 'bridge',
+    checked: false,
+    class: 'col-md-2'
   }];
 
   isDisabled: boolean = false;
+
+  public defaultPicture = 'assets/img/theme/no-photo.png';
+  public profile:any = {
+    picture: 'assets/img/app/profile/Nasta.png'
+  };
+  public uploaderOptions:NgUploaderOptions = {
+    // url: 'http://website.com/upload'
+    url: '',
+  };
+
+  public fileUploaderOptions:NgUploaderOptions = {
+    // url: 'http://website.com/upload'
+    url: '',
+  };
 
   public checkboxPropertiesMapping = {
     model: 'checked',
@@ -35,6 +66,7 @@ export class AddPropertyComponent implements OnInit {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
       address: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+      checkboxModel: [this.checkboxModel]
     });
     //this.form.setValue({name: 'Tom', basic: {age: 10}, tags: []});
   }

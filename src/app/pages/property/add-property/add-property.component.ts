@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-property',
@@ -29,9 +30,19 @@ export class AddPropertyComponent implements OnInit {
     label: 'name',
     baCheckboxClass: 'class'
   };
-  constructor() { }
 
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+      address: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+    });
+    //this.form.setValue({name: 'Tom', basic: {age: 10}, tags: []});
+  }
+
+  form: FormGroup;
+  
   ngOnInit() {
   }
+  
 
 }

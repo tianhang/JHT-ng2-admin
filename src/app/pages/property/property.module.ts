@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule as AngularFormsModule } from '@angular/forms';
+import { FormsModule as AngularFormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { PropertyComponent } from './property.component';
 import { PropertyListComponent } from './property-list/property-list.component';
 import { AddPropertyComponent } from './add-property/add-property.component';
@@ -11,6 +11,7 @@ import { NgaModule } from '../../theme/nga.module';
   imports: [
     CommonModule,
     AngularFormsModule,
+    ReactiveFormsModule,
     routing,
     NgaModule
   ],
